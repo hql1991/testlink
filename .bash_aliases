@@ -1,0 +1,1 @@
+/home/hql/.bash_aliases
