@@ -1,0 +1,20 @@
+# hql: docker aliases
+alias dockerrme='
+if [ -z "$(docker ps -f status=exited -q)" ]; then
+    echo fuck, no exited docker containers!;
+else
+    echo -e "found exited containers,\nremoving:";
+    docker rm $(docker ps -f status=exited -q);
+fi
+'
+
+alias dockerrmc='
+if [ -z "$(docker ps -f status=created -q)" ]; then
+    echo fuck, no created docker containers!
+else
+    echo -e "found created containers,\nremoving:"
+    docker rm $(docker ps -f status=created -q)
+fi
+'
+
+alias dockerprune='docker rmi $(docker images -f dangling=true -q)'
